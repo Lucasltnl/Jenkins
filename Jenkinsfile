@@ -22,7 +22,7 @@ pipeline {
                     def serverHost = '192.168.102.111'
                     def remotePath = '/var/www/html/'
                     
-                sshagent(['42a43ad84-07e0-4c60-aec6-a508ad418018']) {
+                sshagent(['2a43ad84-07e0-4c60-aec6-a508ad418018']) {
                         sh "scp -r ./* ${serverUser}@${serverHost}:${remotePath}"
                 }
             }
