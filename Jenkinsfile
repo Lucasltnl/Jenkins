@@ -6,9 +6,9 @@ pipeline {
             steps {
                 script {
                     def serverUser = 'student'
-                    def serverHost = '192.168.138.112'
+                    def serverHost = '192.168.102.112'
                     
-                    sshagent(['b8b245b3-0567-4396-9267-e561f6d10e72']) {
+                    sshagent(['1fa54fc2-dda9-4594-8c87-1d2e4a78c412']) {
                         sh "ssh -v ${serverUser}@${serverHost} sudo rm -rf /var/www/html/*"
                     }
                 }
@@ -19,10 +19,10 @@ pipeline {
             steps {
                 script {
                     def serverUser = 'student'
-                    def serverHost = '192.168.138.112'
+                    def serverHost = '192.168.102.112'
                     def remotePath = '/var/www/html/'
                     
-                sshagent(['b8b245b3-0567-4396-9267-e561f6d10e72']) {
+                sshagent(['1fa54fc2-dda9-4594-8c87-1d2e4a78c412']) {
                         sh "scp -r ./* ${serverUser}@${serverHost}:${remotePath}"
                 }
             }
