@@ -7,29 +7,26 @@ pipeline {
                 script {
                     def serverUser = 'student'
                     def serverHost = '192.168.102.112'
-                    def remotePath = '/var/www/html/'
-
-                    sshagent(credentials: ['1fa54fc2-dda9-4594-8c87-1d2e4a78c412']) {
-                        // SSH-oproep met debuglogboek
-                        sh "ssh -v ${serverUser}@${serverHost} sudo rm -rf ${remotePath}* 2>&1"
+                    
+                    sshagent(['1fa54fc2-dda9-4594-8c87-1d2e4a78c412']) {
+                        sh "ssh -v ${serverUser}@${serverHost} sudo rm -rf /var/www/html/*"
                     }
                 }
             }
         }
-
+        
         stage('Add new files to Ubuntu') {
             steps {
                 script {
                     def serverUser = 'student'
-                    def serverHost = '192.168.102.112'
+                    def serverHost = '192.168.138.112'
                     def remotePath = '/var/www/html/'
-
-                    sshagent(credentials: ['1fa54fc2-dda9-4594-8c87-1d2e4a78c412']) {
-                        // SCP-oproep met debuglogboek
-                        sh "scp -rv ./* ${serverUser}@${serverHost}:${remotePath} 2>&1"
-                    }
+                    
+                sshagent(['1fa54fc2-dda9-4594-8c87-1d2e4a78c412']) {
+                        sh "scp -r ./* ${serverUser}@${serverHost}:${remotePath}"
                 }
             }
         }
     }
+}
 }
