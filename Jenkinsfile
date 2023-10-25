@@ -18,10 +18,10 @@ pipeline {
             steps {
                 script {
                     def serverUser = 'student'
-                    def serverHost = '192.168.102.112'
+                    def serverHost = '192.168.106.112'
 
                     // SSH-agent gebruiken voor de sleutel met de ID '1fa54fc2-dda9-4594-8c87-1d2e4a78c412'
-                    sshagent(['437bce8e-09d7-4292-b986-5364da9f7137']) {
+                    sshagent(['c98a3e56-32ce-4406-989e-9be8c103ce3d']) {
                         // Voeg debugging-uitvoer toe
                         echo "Removing old files on Ubuntu"
                         sh "ssh -v ${serverUser}@${serverHost} sudo rm -rf /var/www/html/* 2>&1"
@@ -34,11 +34,11 @@ pipeline {
             steps {
                 script {
                     def serverUser = 'student'
-                    def serverHost = '192.168.102.112'
+                    def serverHost = '192.168.106.112'
                     def remotePath = '/var/www/html/'
 
                     // SSH-agent gebruiken voor dezelfde sleutel
-                    sshagent(['437bce8e-09d7-4292-b986-5364da9f7137']) {
+                    sshagent(['c98a3e56-32ce-4406-989e-9be8c103ce3d']) {
                         // Voeg debugging-uitvoer toe
                         echo "Adding new files to Ubuntu"
                         sh "scp -r ./* ${serverUser}@${serverHost}:${remotePath} 2>&1"
