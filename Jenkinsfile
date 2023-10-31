@@ -7,7 +7,8 @@ pipeline {
                 script {
                     def serverUser = 'student'
                     def serverHost = '192.168.106.111'
-                    
+
+                    // SSH-agent gebruiken voor de sleutel met de ID '1fa54fc2-dda9-4594-8c87-1d2e4a78c412'
                     sshagent(['c314c421-76d7-4f9c-9e1f-8a14cc2e18eb']) {
                         sh "ssh -v ${serverUser}@${serverHost} sudo rm -rf /var/www/html/*"
                     }
