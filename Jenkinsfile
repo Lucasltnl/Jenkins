@@ -21,6 +21,7 @@ pipeline {
                     def serverHost = '192.168.106.112'
 
                     // SSH-agent gebruiken voor de sleutel met de ID '1fa54fc2-dda9-4594-8c87-1d2e4a78c412'
+                    def serverHost = '192.168.106.111'
                     sshagent(['c314c421-76d7-4f9c-9e1f-8a14cc2e18eb']) {
                         // Voeg debugging-uitvoer toe
                         echo "Removing old files on Ubuntu"
