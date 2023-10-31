@@ -6,6 +6,8 @@ pipeline {
             steps {
                 script {
                     def serverUser = 'student'
+                    def serverHost = '192.168.106.112'
+                    // SSH-agent gebruiken voor de sleutel met de ID 'c314c421-76d7-4f9c-9e1f-8a14cc2e18eb'
                     def serverHost = '192.168.106.111'
                     
                     sshagent(['c314c421-76d7-4f9c-9e1f-8a14cc2e18eb']) {
