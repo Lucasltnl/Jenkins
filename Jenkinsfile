@@ -6,7 +6,6 @@ pipeline {
             steps {
                 script {
                     def serverUser = 'student'
-                    def serverHost = '192.168.106.112'
                     def serverHost = '192.168.106.111'
                     
                     sshagent(['c314c421-76d7-4f9c-9e1f-8a14cc2e18eb']) {
